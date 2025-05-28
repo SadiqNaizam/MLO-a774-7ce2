@@ -4,51 +4,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 202 61.5% 10.6%; /* PRD background: #0A202C */
+    --foreground: 0 0% 100%;       /* Text on --background, assumed white for PRD's dark bg */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;              /* PRD surface: #FFFFFF */
+    --card-foreground: 0 0% 0%;     /* PRD primaryText: #000000 */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;           /* Default light popover */
+    --popover-foreground: 0 0% 0%;  /* Default dark text for popover */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 199.1 91.1% 48.4%;   /* PRD accentBlue: #0EA5E9 */
+    --primary-foreground: 0 0% 100%;/* PRD buttonText (white) on accentBlue */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 40% 96.1%;     /* Existing light gray, general purpose */
+    --secondary-foreground: 222.2 47.4% 11.2%; /* Existing dark text for secondary */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 96.1%;         /* Existing light gray, can be useful */
+    --muted-foreground: 215 9.9% 46.1%; /* PRD secondaryText: #6B7280 */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 199.1 91.1% 48.4%;    /* PRD accentBlue: #0EA5E9, mapped to accent */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;   /* Existing destructive color */
+    --destructive-foreground: 210 40% 98%; /* Existing text for destructive */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 216 19.4% 83.9%;      /* PRD inputBorder: #D1D5DB */
+    --input: 216 19.4% 83.9%;       /* PRD inputBorder: #D1D5DB, for input elements */
+    --ring: 199.1 91.1% 48.4%;      /* Focus ring, using PRD accentBlue: #0EA5E9 */
 
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.5rem;               /* Existing, aligns with PRD "rounded-md" via tailwind.config */
   }
 
   .dark {
@@ -79,14 +63,7 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar variables removed as they are not in the PRD's designSystem */
   }
 }
 
@@ -97,5 +74,8 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: sans-serif; /* Explicitly set primaryFont from PRD */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
